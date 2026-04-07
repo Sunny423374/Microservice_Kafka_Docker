@@ -10,6 +10,6 @@ public interface OrderService {
     List<Order> findAll();
     OrderDto findById(int id);
     OrderDto save(Order order);
-    OrderDto update(Order order);
+    OrderDto update(Order order, int id);
     OrderDto delete(int id);
 }

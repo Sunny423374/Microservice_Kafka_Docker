@@ -37,10 +37,10 @@ public class OrderController {
         return new ResponseEntity<>(orderService.save(order), HttpStatus.CREATED);
     }
 
-    @PatchMapping("/update")
-    public ResponseEntity<OrderDto> updateOrder(@RequestBody Order order) {
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<OrderDto> updateOrder(@RequestBody Order order, @PathVariable int id) {
         log.debug("REST request to update Order : {}", order);
-        return new ResponseEntity<>(orderService.update(order), HttpStatus.OK);
+        return new ResponseEntity<>(orderService.update(order,id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
