@@ -1,0 +1,42 @@
+			
+				ELK Commands
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+Elastic Search:
+-------------------
+
+run: bin\elasticsearch (inside elastic search folder)
+
+Username: elastic
+Password for the elastic user (reset with `bin/elasticsearch-reset-password -u elastic`):
+  *5g2dAdfvRGFQf3JfhMc
+
+
+ HTTP CA certificate SHA-256 fingerprint:
+  e7c24135947e6bf837a433bb7f6347c6276100bef37460c247d4b081add8b594
+
+Copy the following enrollment token and paste it into Kibana in your browser (valid for the next 30 minutes):
+  eyJ2ZXIiOiI4LjE0LjAiLCJhZHIiOlsiMTcyLjIxLjQ4LjE6OTIwMCJdLCJmZ3IiOiJlN2MyNDEzNTk0N2U2YmY4MzdhNDMzYmI3ZjYzNDdjNjI3NjEwMGJlZjM3NDYwYzI0N2Q0YjA4MWFkZDhiNTk0Iiwia2V5IjoiMlFhZmFKMEJQZ19nZTUtN01DWjU6UERMUUMyRFVfS2dXbXRBMXIxVlRqdyJ9
+
+To regenerate token for Kibana(expired after 30mins) - 
+-------------------------------------------------------
+Run: (go inside elasticsearch/bin and open new cmd another to elastic search one already running)
+
+elasticsearch-create-enrollment-token.bat -s kibana --url https://localhost:9200
+
+Kibana:
+-----------------
+
+run: bin\kibana (inside kibana search folder)
+
+
+
+Logstash:
+-------------
+
+add logback-spring.xml in java code to generate logs
+copy path of logs generated
+create logstash.conf file in logstash folder and replace path with copied path of logs
+
+run command: bin\logstash -f config\logstash.conf
